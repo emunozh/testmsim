@@ -157,7 +157,7 @@ getSAE <- function(observed, simulated, population_size){
 getPSAE <- function(observed, simulated, population_size){
     obs <- as.numeric(observed)
     sim <- as.numeric(simulated)
-    PSAE <- abs(observed-simulated) / population_size * 100}
+    abs(observed-simulated) / population_size * 100}
 
 #' @title Z-statistic
 #'
