@@ -6,6 +6,11 @@
 \usage{
 getTAD(design_weights, simulated_weights)
 }
+\arguments{
+\item{design_weights}{weights of the survey}
+
+\item{simulated_weights}{simulated weights}
+}
 \value{
 total absolute distance
 }
