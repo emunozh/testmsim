@@ -1,5 +1,5 @@
 ---
-title: "Vignette Title"
+title: "External validation"
 author: "Vignette Author"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -21,20 +21,24 @@ is often difficult to do external validation because one of the main reasons
 for generating synthetic spatial microdata is that real microdata does
 not exist. So there may be nothing to compare the data against.
 
-To overcom
+To overcome this issue, we use public spatial microdata data from the UK's Office
+of National Statistics (ONS). This is real data, a 1% sample of anonymised
+records 
 
 
 
 
-```{r}
+```{r, eval=FALSE}
 # Warning: this will download 7 MB of data, may take some time
-# download.file("http://www.ons.gov.uk/ons/rel/census/2011-census/2011-census-teaching-file/rft-teaching-file.zip", destfile = "rft-teaching-file.zip")
-# dir.create("external-validation")
-# # Extract the data to a new folder
-# unzip("rft-teaching-file.zip", exdir = "external-validation")
+hlink <- "http://www.ons.gov.uk/ons/rel/census/2011-census/2011-census-teaching-file/rft-teaching-file.zip"
+download.file(hlink, destfile = "rft-teaching-file.zip")
+dir.create("external-validation")
+# Extract the data to a new folder
+unzip("rft-teaching-file.zip", exdir = "external-validation")
 ```
 
-```{r}
+```{r, eval=FALSE}
+# smdata <- read.csv("../external-validation/2011 Census Microdata Teaching File.csv", skip = 1)
 smdata <- read.csv("external-validation/2011 Census Microdata Teaching File.csv", skip = 1)
 head(smdata)
 summary(smdata$Region) # the spatial data that we will seek to estimate
@@ -45,7 +49,7 @@ summary(smdata$Region) # the spatial data that we will seek to estimate
 With almost 600,000 rows, the spatial microdata loaded is sufficiently large
 to sample, whilst still retaining good distribtion of individual-level variables.
 
-```{r}
+```{r, eval=FALSE}
 sel <- sample(nrow(smdata), size = nrow(smdata) / 100)
 ind <- smdata[sel, ] # create microdata
 ind$Region <- NULL # remove geographical information
