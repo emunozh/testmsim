@@ -1,4 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-*.Rd
+inst/doc
+rft*
+external-validation/
