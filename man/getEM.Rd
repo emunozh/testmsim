@@ -9,7 +9,7 @@ getEM(population_size, simulated_weights)
 \arguments{
 \item{population_size}{known population size}
 
-\item{simulated}{weights}
+\item{simulated_weights}{simulated weights}
 }
 \value{
 error in margins

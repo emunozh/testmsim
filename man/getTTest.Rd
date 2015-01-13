@@ -19,8 +19,4 @@ performs a t-test to compare expected proportions between simulated and
 observed marginal totals. This function implements the
 \code{\link[stats]{t.test}} function.
 }
-\examples{
-getTTest(10, 20)
-getTTest(30, 40)
-}
 

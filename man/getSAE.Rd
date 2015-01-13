@@ -17,7 +17,7 @@ getSAE(observed, simulated, population_size)
 standardized absolute error
 }
 \description{
-Divides the \code{\link{TAE}} by the know population size.
+Divides the \code{\link{getTAE}} by the know population size.
 \deqn{
      SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i
      }

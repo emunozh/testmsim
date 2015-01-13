@@ -6,9 +6,6 @@
 \usage{
 getTAD(design_weights, simulated_weights)
 }
-\arguments{
-\item{simulated_weights}{simulated weights}
-}
 \value{
 total absolute distance
 }

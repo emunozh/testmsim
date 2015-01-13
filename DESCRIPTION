@@ -3,7 +3,15 @@ Type: Package
 Title: What the package does (short line)
 Version: 1.0
 Date: 2015-01-12
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: Esteban Muñoz and Robin Lovelace
+Maintainer: Who to complain to <rob00x@gmail.com>
+Description: This package provides functions, data and descriptions of commonly used methods in spatial microsimulation. Spatial microsimulation is an approach to multi-level problems that involves the generation and analysis of spatial microdata: individual-level data allocated to geographical zones.
 License: What license is it under?
+
+import:
+  dplyr,
+  tidyr
+
+suggests:
+  ggmap,
+  ggvis

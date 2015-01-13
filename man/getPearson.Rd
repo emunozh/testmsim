@@ -22,8 +22,4 @@ estimation of the Pearson correlation coefficient.
      pearson <- cor(cbind(Tx, hTx), use="complete.obs", method="pearson")
      }
 }
-\examples{
-getPearson(10, 20)
-getPearson(30, 40)
-}
 

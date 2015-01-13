@@ -6,9 +6,6 @@
 \usage{
 getChi(design_weights, simulated_weights)
 }
-\arguments{
-\item{simulated_weights}{simulated weights}
-}
 \value{
 chi-squared distance
 }
