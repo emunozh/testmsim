@@ -6,7 +6,21 @@
 \usage{
 getTTest(observed, simulated)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+}
+\value{
+t-test
+}
 \description{
-Independent samples t-Test
+performs a t-test to compare expected proportions between simulated and
+observed marginal totals. This function implements the
+\code{\link[stats]{t.test}} function.
+}
+\examples{
+getTTest(10, 20)
+getTTest(30, 40)
 }
 

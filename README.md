@@ -4,7 +4,7 @@
 
 ```
 $./updatedoc.sh
-$R CMD build pkgName
-$R CMD INSTALL pkgName.tar.gz
-$R CMD check pkgName
+$R CMD build testsim
+$R CMD INSTALL testsim_1.0.tar.gz
+$R CMD check testsim
 ```

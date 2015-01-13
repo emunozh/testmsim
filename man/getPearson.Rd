@@ -6,7 +6,24 @@
 \usage{
 getPearson(observed, simulated)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+}
+\value{
+Pearson correlation
+}
 \description{
-Correlation Coefficient (Pearson Correlation)
+test for correlations between simulated and expected marginal totals. This
+functions implements the \code{\link[stats]{cor}} function for the
+estimation of the Pearson correlation coefficient.
+\deqn{
+     pearson <- cor(cbind(Tx, hTx), use="complete.obs", method="pearson")
+     }
+}
+\examples{
+getPearson(10, 20)
+getPearson(30, 40)
 }
 

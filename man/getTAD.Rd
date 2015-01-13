@@ -6,7 +6,21 @@
 \usage{
 getTAD(design_weights, simulated_weights)
 }
+\arguments{
+\item{simulated_weights}{simulated weights}
+}
+\value{
+total absolute distance
+}
 \description{
-Total absolute distance (TAD)
+Computes the total absolute distance between sample design weights and
+estimated new weights.
+\deqn{
+     TAD = \sum_i^n \left|\sum_j^m w_{i,j} - pop_i\right|
+     }
+}
+\examples{
+getTAD(10, 20)
+getTAD(30, 40)
 }
 
