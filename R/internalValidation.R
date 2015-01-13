@@ -134,7 +134,7 @@ getTAE <- function(observed, simulated){
 #' @title Standardized absolute error (SAE)
 #'
 #' @description
-#' Divides the \code{\link{TAE}} by the know population size. 
+#' Divides the \code{\link{TAE}} by the know population size.
 #' \deqn{
 #'      SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i
 #'      }
@@ -232,7 +232,7 @@ getTTest <- function(observed, simulated){
 #' @description
 #' Compute the r-squared coefficient of determination between simulated and
 #' observed marginal totals. This function implements the
-#' \code{\link[stats]{lm}} function to estimate the r-squared coefficient. 
+#' \code{\link[stats]{lm}} function to estimate the r-squared coefficient.
 #'
 #' @docType package
 #' @inheritParams getTAE
