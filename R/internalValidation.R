@@ -77,13 +77,13 @@ getTAD <- function(design_weights, simulated_weights){
 #'      }
 #'
 #' @param population_size known population size
-#' @param simulated weights
+#' @param simulated_weights simulated weights
 #' @return error in margins
 #' @examples
 #' getEM(10, 20)
 #' getEM(30, 40)
 getEM <- function(population_size, simulated_weights){
-    EM <- (sum(design_weights) - population_size) / population_size}
+    EM <- (sum(simulated_weights) - population_size) / population_size}
 
 #' @title Error in Distribution (ED)
 #'
@@ -100,7 +100,7 @@ getEM <- function(population_size, simulated_weights){
 #' getED(10, 20)
 #' getED(30, 40)
 getED <- function(population_size, simulated_weights){
-    ED <- abs(sum(design_weights) - population_size) / population_size}
+    ED <- abs(sum(simulated_weights) - population_size) / population_size}
 
 #' @title Total absolute error (TAE)
 #'
@@ -125,7 +125,7 @@ getTAE <- function(observed, simulated){
 #' @title Standardized absolute error (SAE)
 #'
 #' @description
-#' Divides the \code{\link{TAE}} by the know population size. 
+#' Divides the \code{\link{getTAE}} by the know population size. 
 #' \deqn{
 #'      SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i
 #'      }
@@ -144,7 +144,7 @@ getSAE <- function(observed, simulated, population_size){
 #' @title Percentage error (PSAE)
 #'
 #' @description
-#' Divides the \code{\link{SAE}} by the known population size.
+#' Divides the \code{\link{getSAE}} by the known population size.
 #' \deqn{
 #'      PAE = \sum_i^n |Tx - \hat{t}x| \div pop_i \times 100
 #'      }
@@ -157,7 +157,7 @@ getSAE <- function(observed, simulated, population_size){
 getPSAE <- function(observed, simulated, population_size){
     obs <- as.numeric(observed)
     sim <- as.numeric(simulated)
-    PSAE <- abs(observed-simulated) / population_size * 100}
+    abs(observed-simulated) / population_size * 100}
 
 #' @title Z-statistic
 #'
@@ -165,9 +165,9 @@ getPSAE <- function(observed, simulated, population_size){
 #' The Z-statistic aims to describe the performance of the individual
 #' characteristics of the population used as constrains in the simulation.
 #' \deqn{
-#'    r = & \frac{\hat{t}x}{\sum Tx}\\
-#'    p = & \frac{Tx}{\sum Tx}\\
-#'    Z = & \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
+#'    r = \frac{\hat{t}x}{\sum Tx}
+#'    p = \frac{Tx}{\sum Tx}
+#'    Z = \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
 #'      }
 #'
 #' @inheritParams getTAE
@@ -194,9 +194,6 @@ getZ <- function(observed, simulated){
 #'
 #' @inheritParams getTAE
 #' @return Pearson correlation
-#' @examples
-#' getPearson(10, 20)
-#' getPearson(30, 40)
 getPearson <- function(observed, simulated){
     pearson <- cor(cbind(observed, simulated), use="complete.obs", method="pearson")}
 
@@ -209,9 +206,6 @@ getPearson <- function(observed, simulated){
 #'
 #' @inheritParams getTAE
 #' @return t-test
-#' @examples
-#' getTTest(10, 20)
-#' getTTest(30, 40)
 getTTest <- function(observed, simulated){
     ttest <- t.test(observed, simulated)$p.value}
 
@@ -223,9 +217,6 @@ getTTest <- function(observed, simulated){
 #' \code{\link[stats]{lm}} function to estimate the r-squared coefficient. 
 #'
 #' @inheritParams getTAE
-#' @examples
-#' getR(10, 20)
-#' getR(30, 40)
 getR <- function(observed, simulated){
     lm.X <- lm(observed ~ simulated)
     r2 <- summary(lm.X)$r.squared}

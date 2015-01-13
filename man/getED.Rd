@@ -8,6 +8,8 @@ getED(population_size, simulated_weights)
 }
 \arguments{
 \item{population_size}{known population size}
+
+\item{simulated_weights}{simulated weights}
 }
 \value{
 error in distribution

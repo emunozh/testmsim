@@ -18,9 +18,9 @@ Z-statistic
 The Z-statistic aims to describe the performance of the individual
 characteristics of the population used as constrains in the simulation.
 \deqn{
-   r = & \frac{\hat{t}x}{\sum Tx}\\
-   p = & \frac{Tx}{\sum Tx}\\
-   Z = & \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
+   r = \frac{\hat{t}x}{\sum Tx}
+   p = \frac{Tx}{\sum Tx}
+   Z = \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
      }
 }
 \examples{

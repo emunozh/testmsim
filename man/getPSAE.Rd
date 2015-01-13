@@ -17,7 +17,7 @@ getPSAE(observed, simulated, population_size)
 percentage error
 }
 \description{
-Divides the \code{\link{SAE}} by the known population size.
+Divides the \code{\link{getSAE}} by the known population size.
 \deqn{
      PAE = \sum_i^n |Tx - \hat{t}x| \div pop_i \times 100
      }
