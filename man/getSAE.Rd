@@ -6,7 +6,24 @@
 \usage{
 getSAE(observed, simulated, population_size)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+
+\item{population_size}{known population size}
+}
+\value{
+standardized absolute error
+}
 \description{
-Standardized absolute error (SAE)
+Divides the \code{\link{TAE}} by the know population size.
+\deqn{
+     SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i
+     }
+}
+\examples{
+getSAE(10, 20, 5)
+getSAE(30, 40, 5)
 }
 

@@ -6,7 +6,21 @@
 \usage{
 getMChi(design_weights, simulated_weights, population_size)
 }
+\arguments{
+\item{simulated_weights}{simulated weights}
+}
+\value{
+mean chi-squared distance
+}
 \description{
-Mean Chi-squared distance
+Computes the mean Chi-squared distance between sample design weights and
+estimated new weights.
+\deqn{
+     \theta Chi_i = \sum_j^m \frac{\left(w_j \times d_j\right)^2 }{2d_j} \div m
+     }
+}
+\examples{
+getMChi(10, 20, 5)
+getMChi(30, 40, 5)
 }
 

@@ -6,7 +6,24 @@
 \usage{
 getPSAE(observed, simulated, population_size)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+
+\item{population_size}{known population size}
+}
+\value{
+percentage error
+}
 \description{
-Percentage error (PSAE)
+Divides the \code{\link{SAE}} by the known population size.
+\deqn{
+     PAE = \sum_i^n |Tx - \hat{t}x| \div pop_i \times 100
+     }
+}
+\examples{
+getPSAE(10, 20, 5)
+getPSAE(30, 40, 5)
 }
 

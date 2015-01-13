@@ -6,7 +6,21 @@
 \usage{
 getChi(design_weights, simulated_weights)
 }
+\arguments{
+\item{simulated_weights}{simulated weights}
+}
+\value{
+chi-squared distance
+}
 \description{
-Total Chi-squared distance
+Computes the Chi-squared distance between sample design weights and
+estimated new weights.
+\deqn{
+     Chi_i = \sum_j^m \frac{\left( w_j \times d_j\right)^2 }{2d_j}
+     }
+}
+\examples{
+getChi(10, 20)
+getChi(30, 40)
 }
 

@@ -4,9 +4,25 @@
 \alias{getEM}
 \title{Error in Margin (EM)}
 \usage{
-getEM(design_weights, simulated_weights)
+getEM(population_size, simulated_weights)
+}
+\arguments{
+\item{population_size}{known population size}
+
+\item{simulated}{weights}
+}
+\value{
+error in margins
 }
 \description{
-Error in Margin (EM)
+Computes the ration between estimated and known number of individuals or
+households.
+\deqn{
+     EM_i = \frac{\sum w_j - pop_i}{pop_i}
+     }
+}
+\examples{
+getEM(10, 20)
+getEM(30, 40)
 }
 

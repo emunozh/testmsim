@@ -6,7 +6,25 @@
 \usage{
 getZ(observed, simulated)
 }
-\description{
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+}
+\value{
 Z-statistic
+}
+\description{
+The Z-statistic aims to describe the performance of the individual
+characteristics of the population used as constrains in the simulation.
+\deqn{
+   r = & \frac{\hat{t}x}{\sum Tx}\\
+   p = & \frac{Tx}{\sum Tx}\\
+   Z = & \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
+     }
+}
+\examples{
+getZ(10, 20)
+getZ(30, 40)
 }
 

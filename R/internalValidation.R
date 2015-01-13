@@ -1,5 +1,3 @@
-#TODO: write examples
-
 #' @title Weights Distance
 #'
 #' @description
@@ -9,9 +7,8 @@
 #'      D_i = \sum_j^m |w_j - d_j|
 #'      }
 #'
-#' @docType package
 #' @param design weights of the survey
-#' @param simulated weights
+#' @param simulated_weights simulated weights
 #' @return distance_weights distance between weights
 #' @examples
 #' getD(10, 20)
@@ -28,7 +25,6 @@ getD <- function(design_weights, simulated_weights){
 #'      Chi_i = \sum_j^m \frac{\left( w_j \times d_j\right)^2 }{2d_j}
 #'      }
 #'
-#' @docType package
 #' @inheritParams getD
 #' @return chi-squared distance
 #' @examples
@@ -46,7 +42,6 @@ getChi <- function(design_weights, simulated_weights){
 #'      \theta Chi_i = \sum_j^m \frac{\left(w_j \times d_j\right)^2 }{2d_j} \div m
 #'      }
 #'
-#' @docType package
 #' @inheritParams getD
 #' @return mean chi-squared distance
 #' @examples
@@ -64,7 +59,6 @@ getMChi <- function(design_weights, simulated_weights, population_size){
 #'      TAD = \sum_i^n \left|\sum_j^m w_{i,j} - pop_i\right|
 #'      }
 #'
-#' @docType package
 #' @inheritParams getD
 #' @return total absolute distance
 #' @examples
@@ -82,8 +76,7 @@ getTAD <- function(design_weights, simulated_weights){
 #'      EM_i = \frac{\sum w_j - pop_i}{pop_i}
 #'      }
 #'
-#' @docType package
-#' @param known population size
+#' @param population_size known population size
 #' @param simulated weights
 #' @return error in margins
 #' @examples
@@ -101,7 +94,6 @@ getEM <- function(population_size, simulated_weights){
 #'      ED_i = \frac{|\sum w_j - pop_i|}{pop_i}
 #'      }
 #'
-#' @docType package
 #' @inheritParams getEM
 #' @return error in distribution
 #' @examples
@@ -119,9 +111,8 @@ getED <- function(population_size, simulated_weights){
 #'      TAE = \sum_i^n |Tx - \hat{t}x|
 #'      }
 #'
-#' @docType package
-#' @param observed marginal sums
-#' @param simulated marginal sums
+#' @param observed observed marginal sums
+#' @param simulated simulated marginal sums
 #' @return total absolute error
 #' @examples
 #' getTAE(10, 20)
@@ -139,9 +130,8 @@ getTAE <- function(observed, simulated){
 #'      SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i
 #'      }
 #'
-#' @docType package
 #' @inheritParams getTAE
-#' @param known population size
+#' @param population_size known population size
 #' @return standardized absolute error
 #' @examples
 #' getSAE(10, 20, 5)
@@ -159,7 +149,6 @@ getSAE <- function(observed, simulated, population_size){
 #'      PAE = \sum_i^n |Tx - \hat{t}x| \div pop_i \times 100
 #'      }
 #'
-#' @docType package
 #' @inheritParams getSAE
 #' @return percentage error
 #' @examples
@@ -181,10 +170,11 @@ getPSAE <- function(observed, simulated, population_size){
 #'    Z = & \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
 #'      }
 #'
-#' @docType package
 #' @inheritParams getTAE
 #' @return Z-statistic
 #' @examples
+#' getZ(10, 20)
+#' getZ(30, 40)
 getZ <- function(observed, simulated){
     obs <- as.numeric(observed)
     sim <- as.numeric(simulated)
@@ -202,7 +192,6 @@ getZ <- function(observed, simulated){
 #'      pearson <- cor(cbind(Tx, hTx), use="complete.obs", method="pearson")
 #'      }
 #'
-#' @docType package
 #' @inheritParams getTAE
 #' @return Pearson correlation
 #' @examples
@@ -218,7 +207,6 @@ getPearson <- function(observed, simulated){
 #' observed marginal totals. This function implements the
 #' \code{\link[stats]{t.test}} function.
 #'
-#' @docType package
 #' @inheritParams getTAE
 #' @return t-test
 #' @examples
@@ -234,9 +222,10 @@ getTTest <- function(observed, simulated){
 #' observed marginal totals. This function implements the
 #' \code{\link[stats]{lm}} function to estimate the r-squared coefficient.
 #'
-#' @docType package
 #' @inheritParams getTAE
 #' @examples
+#' getR(10, 20)
+#' getR(30, 40)
 getR <- function(observed, simulated){
     lm.X <- lm(observed ~ simulated)
     r2 <- summary(lm.X)$r.squared}

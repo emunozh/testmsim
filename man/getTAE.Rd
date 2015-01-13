@@ -6,7 +6,23 @@
 \usage{
 getTAE(observed, simulated)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+}
+\value{
+total absolute error
+}
 \description{
-Total absolute error (TAE)
+Computes the total absolute error as the sum of the absolute difference
+between observed marginal sums and simulated marginal sums.
+\deqn{
+     TAE = \sum_i^n |Tx - \hat{t}x|
+     }
+}
+\examples{
+getTAE(10, 20)
+getTAE(30, 40)
 }
 

@@ -6,7 +6,18 @@
 \usage{
 getR(observed, simulated)
 }
+\arguments{
+\item{observed}{observed marginal sums}
+
+\item{simulated}{simulated marginal sums}
+}
 \description{
-Coefficient of determination
+Compute the r-squared coefficient of determination between simulated and
+observed marginal totals. This function implements the
+\code{\link[stats]{lm}} function to estimate the r-squared coefficient.
+}
+\examples{
+getR(10, 20)
+getR(30, 40)
 }
 

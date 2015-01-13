@@ -7,16 +7,19 @@
 getD(design_weights, simulated_weights)
 }
 \arguments{
-\item{design_weights}{design weights of the survey}
-
 \item{simulated_weights}{simulated weights}
+
+\item{design}{weights of the survey}
 }
 \value{
-distance between weights
+distance_weights distance between weights
 }
 \description{
-Computes the weight distance
-\deqn{D_i = \sum_j^m |w_j - d_j|}
+Computes the distance between sample design weights and estimated new
+weights.
+\deqn{
+     D_i = \sum_j^m |w_j - d_j|
+     }
 }
 \examples{
 getD(10, 20)

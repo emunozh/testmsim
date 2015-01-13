@@ -4,9 +4,23 @@
 \alias{getED}
 \title{Error in Distribution (ED)}
 \usage{
-getED(design_weights, simulated_weights)
+getED(population_size, simulated_weights)
+}
+\arguments{
+\item{population_size}{known population size}
+}
+\value{
+error in distribution
 }
 \description{
-Error in Distribution (ED)
+Computes the ration between absolute sum of residuals (estimated - known)
+and the actual population size.
+\deqn{
+     ED_i = \frac{|\sum w_j - pop_i|}{pop_i}
+     }
+}
+\examples{
+getED(10, 20)
+getED(30, 40)
 }
 
