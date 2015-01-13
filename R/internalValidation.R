@@ -15,7 +15,6 @@
 getDist <- function(design_weights, simulated_weights){
   abs(simulated_weights - design_weights)
 }
-
 #' @title Total Chi-squared distance
 #'
 #' @description
@@ -24,14 +23,17 @@ getDist <- function(design_weights, simulated_weights){
 #' \deqn{
 #'      Chi_i = \sum_j^m \frac{\left( w_j \times d_j\right)^2 }{2d_j}
 #'      }
+#' @source Rahman, A. (2009). Small Area Estimation Through Spatial Microsimulation Models. In 2nd International Microsimulation Association Conference. Ottawa and Canada. \url{http://www.natsem.canberra.edu.au/publications/?publication=small-area-estimation-through-spatial-microsimulation-models-some-methodolgical-issues}
 #'
-#' @inheritParams getD
+#' @inheritParams getDist
 #' @return chi-squared distance
 #' @examples
 #' getChi(10, 20)
 #' getChi(30, 40)
 getChi <- function(design_weights, simulated_weights){
-    sum(1/2 * (design_weights * simulated_weights)^2 / design_weights)}
+  sum((design_weights * simulated_weights)^2 /
+        (2 * design_weights))
+}
 
 #' @title Mean Chi-squared distance
 #'

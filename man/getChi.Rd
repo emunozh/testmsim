@@ -3,8 +3,16 @@
 \name{getChi}
 \alias{getChi}
 \title{Total Chi-squared distance}
+\source{
+Rahman, A. (2009). Small Area Estimation Through Spatial Microsimulation Models. In 2nd International Microsimulation Association Conference. Ottawa and Canada. \url{http://www.natsem.canberra.edu.au/publications/?publication=small-area-estimation-through-spatial-microsimulation-models-some-methodolgical-issues}
+}
 \usage{
 getChi(design_weights, simulated_weights)
+}
+\arguments{
+\item{design_weights}{weights of the survey}
+
+\item{simulated_weights}{simulated weights}
 }
 \value{
 chi-squared distance
