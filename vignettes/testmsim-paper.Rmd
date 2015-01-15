@@ -9,3 +9,188 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r, echo=FALSE}
+# This is a description of the testsmsim package, it motivations and some results
+# it has generated so far
+# location: vignettes/testmsim-paper.Rmd
+
+# Libraries needed to compile this document
+libs <- c("knitr", "devtools")
+lapply(libs, library, character.only = T)
+
+# Installing the testmsim R library (uncomment to install latest version)
+# install_github("robinlovelace/testmsim")
+```
+
+## Introduction
+
+'Spatial microsimulation' is a term that has become associated with methods
+of synthesising and analyzing multi-level data: individuals (typically humans,
+households, firms or ...) allocated to geographical space, typically
+administrative zones. In the terminology of the spatial microsimulation
+literature, this type of individual-level data allocated to zones is
+called 'spatial microdata' [@ref1; @ref2]. Spatial microdata is usually
+stored as a long 2 dimensional table resembling the general structure
+illustrated in Table 1. Note that the data could equally be stored as
+a `list` type, with each zone represented by a separate list object. However,
+for analysis purposes, the 'long data format presented in Table 1 is
+generally preferable as it is 'tidy' [@tidy-data].
+
+
+```{r, echo=FALSE, eval=FALSE}
+df1 <- read.csv(textConnection("ID,V1,V2,V...,Vn,Zone
+1,,,,,1
+2,,,,,1
+3,,,,,1
+…,,,,,…
+…,,,,,2
+…,,,,,2
+…,,,,,…
+T,,,,,Zm"), )
+df1[2:5] <- " "
+kable(df1, row.names = F)
+```
+
+|ID |V1 |V2 |V... |Vn |Zone |
+|:--|:--|:--|:----|:--|:----|
+|1  |   |   |     |   |1    |
+|2  |   |   |     |   |1    |
+|3  |   |   |     |   |1    |
+|…  |   |   |     |   |…    |
+|…  |   |   |     |   |2    |
+|…  |   |   |     |   |2    |
+|…  |   |   |     |   |…    |
+|T  |   |   |     |   |Zm   |
+
+
+There is an ongoing debate about whether the term 'spatial microsimulation'
+should be used to describe the *process* of generating such spatial microdata
+[ref] or an *approach* to investigating multi-level problems that uses spatial
+microdata as its foundation [ref].
+the process of generating 
+
+## Data
+
+## Methods
+
+The methods presented in this paper are threefold: 
+
+1. Code (saved in functions) and test data for generating spatial microdata from 
+	aggregate and individual-level data using a variety of techniques.
+2. A collection of test functions for internal validation of microsimulation models.
+3. A collection of methods for the external validation of these models.
+
+The first set of functions consists of 13 test. We classify these test into two
+categories: a) tests comparing design survey weights with estimated new weights;
+and b) tests comparing small area census data with the marginal sums of the 
+resulting synthetic population.
+
+### Methods of population synthesis
+
+#### IPF
+
+#### GREGWT
+
+```{r, echo=FALSE}
+# I think we should just start with these two. We can add more later (RL)
+```
+
+### Weight based tests
+
+**Weights Distance**
+
+Computes the distance between sample design weights and estimated new
+weights.
+
+$ D_i = \sum_j^m |w_j - d_j| $
+
+**Total Chi-squared distance**
+
+Computes the Chi-squared distance between sample design weights and
+estimated new weights.
+
+$ Chi_i = \sum_j^m \frac{\left( w_j \times d_j\right)^2 }{2d_j} $
+
+**Mean Chi-squared distance**
+
+Computes the mean Chi-squared distance between sample design weights and
+estimated new weights.
+
+$ \theta Chi_i = \sum_j^m \frac{\left(w_j \times d_j\right)^2 }{2d_j} \div m $
+
+**Total absolute distance (TAD)**
+
+Computes the total absolute distance between sample design weights and
+estimated new weights.
+
+$ TAD = \sum_i^n \left|\sum_j^m w_{i,j} - pop_i\right| $
+
+**Error in Margin (EM)**
+
+Computes the ration between estimated and known number of individuals or
+households.
+
+$ EM_i = \frac{\sum w_j - pop_i}{pop_i} $
+
+**Error in Distribution (ED)**
+
+Computes the ration between absolute sum of residuals (estimated - known)
+and the actual population size.
+
+$ ED_i = \frac{|\sum w_j - pop_i|}{pop_i} $
+
+### Marginal sums based tests
+
+**Total absolute error (TAE)**
+
+Computes the total absolute error as the sum of the absolute difference
+between observed marginal sums and simulated marginal sums.
+
+$TAE = \sum_i^n |Tx - \hat{t}x|$
+
+**Standardized absolute error (SAE)**
+
+Divides the \code{\link{getTAE}} by the know population size.
+
+$ SAE = \sum_i^n |Tx - \hat{t}x| \div pop_i $
+
+**Percentage error (PSAE)**
+
+Divides the \code{\link{getSAE}} by the known population size.
+
+$ PAE = \sum_i^n |Tx - \hat{t}x| \div pop_i \times 100 $
+
+**Z-statistic**
+
+The Z-statistic aims to describe the performance of the individual
+characteristics of the population used as constrains in the simulation.
+
+$$
+   r = \frac{\hat{t}x}{\sum Tx}
+   p = \frac{Tx}{\sum Tx}
+   Z = \frac{r-p}{\sqrt{p\times\left(1-p\right)\div\sum Tx}}
+$$
+
+**Correlation Coefficient (Pearson Correlation)**
+
+test for correlations between simulated and expected marginal totals. This
+functions implements the \code{\link[stats]{cor}} function for the
+estimation of the Pearson correlation coefficient.
+
+``pearson <- cor(cbind(Tx, hTx), use="complete.obs", method="pearson")``
+
+**Independent samples t-Test**
+
+performs a t-test to compare expected proportions between simulated and
+observed marginal totals. This function implements the
+available `t.test` function in R.
+
+**Coefficient of determination**
+
+Compute the r-squared coefficient of determination between simulated and
+observed marginal totals. This function implements the function `lm` in R 
+to estimate the r-squared coefficient.
+
+## Results
+
+## Discussion

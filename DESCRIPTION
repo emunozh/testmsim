@@ -13,7 +13,8 @@ Imports:
 Suggests:
   ggmap,
   ggvis,
-  smsim,
+  sms,
   mipfp,
+  ipfp,
   knitr
 VignetteBuilder: knitr
