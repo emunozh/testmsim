@@ -44,7 +44,7 @@ getChi <- function(design_weights, simulated_weights){
 #'      \theta Chi_i = \sum_j^m \frac{\left(w_j \times d_j\right)^2 }{2d_j} \div m
 #'      }
 #'
-#' @inheritParams getD
+#' @inheritParams getDist
 #' @return mean chi-squared distance
 #' @examples
 #' getMChi(10, 20, 5)
@@ -61,7 +61,7 @@ getMChi <- function(design_weights, simulated_weights, population_size){
 #'      TAD = \sum_i^n \left|\sum_j^m w_{i,j} - pop_i\right|
 #'      }
 #'
-#' @inheritParams getD
+#' @inheritParams getDist
 #' @return total absolute distance
 #' @examples
 #' getTAD(10, 20)

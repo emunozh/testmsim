@@ -6,6 +6,11 @@
 \usage{
 getMChi(design_weights, simulated_weights, population_size)
 }
+\arguments{
+\item{design_weights}{weights of the survey}
+
+\item{simulated_weights}{simulated weights}
+}
 \value{
 mean chi-squared distance
 }
