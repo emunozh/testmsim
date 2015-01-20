@@ -1,4 +1,4 @@
-\name{Tx}
+\name{census}
 \alias{Tx}
 \docType{data}
 \title{
@@ -6,7 +6,7 @@
 }
 \description{
 }
-\usage{data("Tx")}
+\usage{data("census")}
 \format{
   A data frame with 1 observations on the following 9 variables.
   \describe{
@@ -28,6 +28,6 @@
 \references{
 }
 \examples{
-data(Tx)
+data('census')
 }
 \keyword{datasets}

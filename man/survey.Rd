@@ -1,4 +1,4 @@
-\name{X}
+\name{survey}
 \alias{X}
 \docType{data}
 \title{
@@ -6,7 +6,7 @@
 }
 \description{
 }
-\usage{data("X")}
+\usage{data("survey")}
 \format{
   A data frame with 25 observations on the following 5 variables.
   \describe{
@@ -15,6 +15,7 @@
     \item{\code{employment}}{a factor with levels \code{employed} \code{unemployed}}
     \item{\code{income}}{a numeric vector}
     \item{\code{location}}{a factor with levels \code{rural} \code{urban}}
+    \item{\code{weights}}{a numeric vector}
   }
 }
 \details{
@@ -24,6 +25,6 @@
 \references{
 }
 \examples{
-data(X)
+data('survey')
 }
 \keyword{datasets}
